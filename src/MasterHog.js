@@ -8,7 +8,7 @@ export default class MasterHog extends Component {
   constructor() {
     super()
     this.state = {
-      eyeColor: "blue",
+      eyeColor: "normal",
     }
   }
 
@@ -24,7 +24,6 @@ export default class MasterHog extends Component {
       return <BabyHog id={baby.id} name={baby.name} hobby={baby.hobby} eyeColor={this.state.eyeColor}/>
     })
   }
-
 
   render() {
     return (

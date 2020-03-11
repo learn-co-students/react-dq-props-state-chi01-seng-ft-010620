@@ -17,19 +17,24 @@ export default class BabyHog extends Component {
     }
   }
 
-  eyeColorMapper = {
-    normal: normalBaby,
-    blue: BlueBaby,
-    sun: SunBaby,
-    glowing: GlowingBaby
-  }
-
   changeWeight = (e) => {
     // nothing needs to change here
     const newWeight = e.target.name === "+" ? (this.state.weight + 10) : (this.state.weight - 10)
     this.setState({
       weight: newWeight
     })
+  }
+
+  setEyeColor = () => {
+    if (this.props.eyeColor === 'blue') {
+      return BlueBaby
+    } if (this.props.eyeColor === 'sun') {
+      return SunBaby
+    } else if (this.props.eyeColor === 'glowing') {
+      return GlowingBaby
+    } else {
+      return normalBaby
+    }
   }
 
   render() {
@@ -48,7 +53,7 @@ export default class BabyHog extends Component {
         </Button>
 
         <div className="hb-wrap">
-          <img src={normalBaby} style={{height: '200px'}} alt="MasterBlasterJrJr" />
+          <img src={this.setEyeColor()} style={{height: '200px'}} alt="MasterBlasterJrJr" />
         </div>
         
       </li>
